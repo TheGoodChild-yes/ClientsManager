@@ -144,6 +144,8 @@ class ElementPlacer :
                 x = elem["x"] * width
                 y = elem["y"] * height
                 widget.place(x=x, y=y)
+                print(x, width)
+                print(y)
                 self.elements.append((widget, elem["command"]))
                 self.make_draggable(widget)
                 self.make_deletable(widget)

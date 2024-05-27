@@ -107,16 +107,18 @@ class ElementPlacer :
         layout = []
         width = self.root.winfo_width()
         height = self.root.winfo_height()
+        print(width, height)
         for element, command_name in self.elements :
             x = element.winfo_x() / width
             y = element.winfo_y() / height
             elem_type = type(element).__name__
             text = element.cget("text")
-            layout.append({"type" : elem_type, "x" : x, "y" : y, "text" : text, "command" : command_name})
+            layout.append({"type" : elem_type, "x" : x, "y" : y, "height" : height, "width" : width,"text" : text, "command" : command_name})
 
-        file_path = "layouts/layout.json"  # Always save to layout.json
-        with open(file_path, 'w') as f :
-            json.dump(layout, f)
+        file_path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON files", "*.json")])
+        if file_path :
+            with open(file_path, 'w') as f :
+                json.dump(layout, f)
 
     def load_layout(self) :
         file_path = "layouts/layout.json"  # Always load from layout.json
@@ -143,6 +145,8 @@ class ElementPlacer :
                 x = elem["x"] * width
                 y = elem["y"] * height
                 widget.place(x=x, y=y)
+                print(x, width)
+                print(y)
                 self.elements.append((widget, elem["command"]))
                 self.make_draggable(widget)
                 self.make_deletable(widget)

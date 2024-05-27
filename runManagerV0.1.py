@@ -45,7 +45,7 @@ class ElementViewer :
 
 
 if __name__ == "__main__" :
-    layout_file = "layout.json"  # Specify your layout file here
+    layout_file = "layouts/layout.json"  # Specify your layout file here
     root = tk.Tk()
     app = ElementViewer(root, layout_file)
     root.mainloop()

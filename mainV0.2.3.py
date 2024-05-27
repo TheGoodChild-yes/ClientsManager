@@ -114,12 +114,12 @@ class ElementPlacer :
             text = element.cget("text")
             layout.append({"type" : elem_type, "x" : x, "y" : y, "text" : text, "command" : command_name})
 
-        file_path = "layout.json"  # Always save to layout.json
+        file_path = "layouts/layout.json"  # Always save to layout.json
         with open(file_path, 'w') as f :
             json.dump(layout, f)
 
     def load_layout(self) :
-        file_path = "layout.json"  # Always load from layout.json
+        file_path = "layouts/layout.json"  # Always load from layout.json
         if file_path :
             with open(file_path, 'r') as f :
                 layout = json.load(f)

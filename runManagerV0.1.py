@@ -21,7 +21,7 @@ class ElementViewer :
 
     def load_layout(self) :
         try :
-            file_path = 'layouts/test for saving location correctly V0.2.3.json'
+            file_path = 'layouts/Layout for Final V0.2.3.json'
             if file_path :
                 with open(file_path, 'r') as f :
                     layout = json.load(f)

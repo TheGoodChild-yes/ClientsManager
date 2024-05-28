@@ -131,8 +131,7 @@ class ElementPlacer :
                     element.destroy()
                 self.elements.clear()
 
-                width = self.root.winfo_width()
-                height = self.root.winfo_height()
+
 
                 for elem in layout :
                     if elem["type"] == "Button" :
@@ -142,7 +141,8 @@ class ElementPlacer :
                         widget = tk.Label(self.root, text=elem["text"])
                     else :
                         continue
-
+                    width = elem["width"]
+                    height = elem["height"]
                     x = elem["x"] * width
                     y = elem["y"] * height
                     widget.place(x=x, y=y)

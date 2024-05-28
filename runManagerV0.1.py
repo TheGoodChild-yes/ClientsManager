@@ -3,6 +3,7 @@ from tkinter import filedialog, messagebox
 import json
 
 
+
 class ElementViewer :
     def __init__(self, root, layout_file) :
         self.root = root
@@ -21,7 +22,7 @@ class ElementViewer :
 
     def load_layout(self) :
         try :
-            file_path = 'layouts/Layout for Final V0.2.3.json'
+            file_path = 'layouts/Layout for Final V0.2.4.json'
             if file_path :
                 with open(file_path, 'r') as f :
                     layout = json.load(f)
@@ -45,8 +46,6 @@ class ElementViewer :
                     x = elem["x"] * width
                     y = elem["y"] * height
                     widget.place(x=x, y=y)
-                    print(x, width)
-                    print(y)
         except Exception as e :
             messagebox.showerror("Error", f"Failed to load layout: {e}")
 

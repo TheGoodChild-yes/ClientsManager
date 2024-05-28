@@ -1,7 +1,18 @@
+
+
+
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import json
 
+class client:
+    def __init__(self):
+        pass
+
+
+class contractor:
+    def __init__(self):
+        pass
 
 
 class ElementViewer :
@@ -22,7 +33,7 @@ class ElementViewer :
 
     def load_layout(self) :
         try :
-            file_path = 'layouts/Layout for Final V0.2.4.json'
+            file_path = self.layout_file
             if file_path :
                 with open(file_path, 'r') as f :
                     layout = json.load(f)
@@ -50,8 +61,12 @@ class ElementViewer :
             messagebox.showerror("Error", f"Failed to load layout: {e}")
 
 
+
+
+
+
 if __name__ == "__main__" :
-    layout_file = "layouts/fixed namable files bug for V0.2.3.json"  # Specify your layout file here
+    layout_file = "layouts/test for loading new commands V0.2.5.json"  # Specify your layout file here
     root = tk.Tk()
     app = ElementViewer(root, layout_file)
     root.mainloop()
